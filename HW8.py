@@ -102,6 +102,12 @@ def find_rest_in_building(building_num, db):
                    FROM restaurants
                    WHERE building = ?
                    ORDER BY rating DESC''', (building_num,))
+    rest_names = [row[0] for row in cur.fetchall()]
+
+    conn.close()
+
+    return rest_names
+
 #EXTRA CREDIT
 def get_highest_rating(db): #Do this through DB as well
     """
